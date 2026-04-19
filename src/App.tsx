@@ -77,8 +77,10 @@ export default function App() {
     setError('');
     
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
-      const model = "gemini-3.1-pro-preview";
+      // ✅ Fix to
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_GEMINI_API_KEY || '' });
+      // ✅ Fix to
+const model = "gemini-1.5-flash";
       
       const prompt = `
         You are a professional LinkedIn ghostwriter.
